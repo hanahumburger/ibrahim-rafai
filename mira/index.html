@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الشهيد إبراهيم الرفاعي</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial;
+      direction: rtl;
+      background:#f2f2f2;
+    }
+
+    header{
+      background:#111;
+      color:white;
+      padding:30px;
+      text-align:center;
+    }
+
+    section{
+      background:white;
+      margin:20px;
+      padding:25px;
+      border-radius:15px;
+    }
+
+    h2{
+      border-right:5px solid #000;
+      padding-right:10px;
+      margin-bottom:20px;
+    }
+
+    /* الصور */
+    .images img,
+    .medals img{
+      width:180px;
+      margin:10px;
+      border-radius:12px;
+    }
+
+    /* الفيديوهات */
+    iframe{
+      width:100%;
+      height:320px;
+      border-radius:12px;
+      border:none;
+    }
+
+    /* الكويز */
+    .quiz{
+      background:#f9f9f9;
+      border:3px solid #000;
+      padding:30px;
+      border-radius:18px;
+    }
+
+    .quiz h2{
+      font-size:28px;
+    }
+
+    .quiz p{
+      font-size:20px;
+      font-weight:bold;
+      margin-top:20px;
+    }
+
+    .quiz label{
+      display:block;
+      font-size:18px;
+      margin:10px 0;
+      cursor:pointer;
+    }
+
+    .quiz button{
+      background:black;
+      color:white;
+      padding:16px;
+      font-size:20px;
+      border:none;
+      border-radius:12px;
+      width:100%;
+      margin-top:25px;
+      cursor:pointer;
+    }
+
+    #result{
+      margin-top:20px;
+      font-size:22px;
+      font-weight:bold;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>الشهيد إبراهيم السيد محمد الرفاعي</h1>
+  <p>سيد الأشباح – قائد المجموعة 39 قتال</p>
+</header>
+
+<!-- صور الشهيد -->
+<section>
+  <h2>📷 صور الشهيد</h2>
+  <div class="images">
+    <!-- غيري أسماء الصور حسب اللي عندك -->
+    <img src="images/rafaii1.jpg" alt="إبراهيم الرفاعي">
+    <img src="images/rafaii2.jpg" alt="إبراهيم الرفاعي">
+  </div>
+</section>
+
+<!-- الأوسمة -->
+<section>
+  <h2>🏅 الأوسمة</h2>
+  <div class="medals">
+    <img src="images/medal1.jpg" alt="وسام">
+    <img src="images/medal2.jpg" alt="وسام">
+  </div>
+</section>
+
+<!-- الفيديوهات -->
+<section>
+  <h2>🎥 فيديوهات من يوتيوب</h2>
+
+  <!-- حطي ID الفيديو بدل VIDEO_ID -->
+  <iframe 
+    src="https://www.youtube.com/embed/VIDEO_ID_1"
+    allowfullscreen>
+  </iframe>
+
+  <br><br>
+
+  <iframe 
+    src="https://www.youtube.com/embed/VIDEO_ID_2"
+    allowfullscreen>
+  </iframe>
+</section>
+
+<!-- الكويز الكبير -->
+<section class="quiz">
+  <h2>📝 كويز عن الشهيد إبراهيم الرفاعي</h2>
+
+  <p>1️⃣ متى استشهد إبراهيم الرفاعي؟</p>
+  <label><input type="radio" name="q1" value="0"> 1967</label>
+  <label><input type="radio" name="q1" value="1"> 19 أكتوبر 1973</label>
+  <label><input type="radio" name="q1" value="0"> 1981</label>
+
+  <p>2️⃣ ما اسم الوحدة التي قادها؟</p>
+  <label><input type="radio" name="q2" value="1"> المجموعة 39 قتال</label>
+  <label><input type="radio" name="q2" value="0"> الكتيبة 101</label>
+  <label><input type="radio" name="q2" value="0"> سلاح المدرعات</label>
+
+  <p>3️⃣ لماذا أُطلق عليه لقب الشبح؟</p>
+  <label><input type="radio" name="q3" value="1"> لسرعة ضرباته واختفائه</label>
+  <label><input type="radio" name="q3" value="0"> بسبب سلاحه</label>
+  <label><input type="radio" name="q3" value="0"> بسبب زيه</label>
+
+  <p>4️⃣ في أي حرب لمع اسمه بعد النكسة؟</p>
+  <label><input type="radio" name="q4" value="1"> حرب الاستنزاف</label>
+  <label><input type="radio" name="q4" value="0"> حرب 1948</label>
+  <label><input type="radio" name="q4" value="0"> حرب الخليج</label>
+
+  <p>5️⃣ ما أعلى وسام حصل عليه؟</p>
+  <label><input type="radio" name="q5" value="1"> وسام نجمة سيناء</label>
+  <label><input type="radio" name="q5" value="0"> نوط الواجب</label>
+  <label><input type="radio" name="q5" value="0"> وسام التحرير</label>
+
+  <button onclick="checkQuiz()">إظهار النتيجة</button>
+
+  <div id="result"></div>
+</section>
+
+<script>
+function checkQuiz(){
+  let score = 0;
+  let total = 5;
+
+  for(let i=1; i<=total; i++){
+    let q = document.getElementsByName("q"+i);
+    for(let j=0; j<q.length; j++){
+      if(q[j].checked && q[j].value == "1"){
+        score++;
+      }
+    }
+  }
+
+  let message = "";
+  if(score == 5){
+    message = "🏆 ممتاز! معلوماتك قوية جدًا";
+  }else if(score >= 3){
+    message = "👏 جيد جدًا، أحسنت";
+  }else{
+    message = "📚 حاول تراجع المعلومات مرة تانية";
+  }
+
+  document.getElementById("result").innerHTML =
+    "✔️ نتيجتك: " + score + " من " + total + "<br>" + message;
+}
+</script>
+
+</body>
+</html>
